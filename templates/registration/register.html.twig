@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+
+    {#    <div class="block max-w-full p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-900 dark:border-gray-700 "> #}
+    <div class="flex flex-col gap-4">
+        <h1 class="text-slate-800 dark:text-white text-4xl font-bold text-center">Register</h1>
+        {% form_theme registrationForm 'tailwind_2_layout.html.twig' %}
+        {{ form_errors(registrationForm) }}
+        {{ form_start(registrationForm, {'attr': {'class': 'flex flex-col mx-auto w-form'}}) }}
+        {{ form_row(registrationForm.email, {
+            label_class: 'block mb-2 text-md font-medium text-gray-900 dark:text-white',
+            widget_class: 'rounded-md w-full',
+            row_class: 'mb-6',
+            widget_errors_class: 'text-red-600 border-red-500',
+            error_item_class: 'text-red-500'
+        }) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label_class: 'block mb-2 text-md font-medium text-gray-900 dark:text-white',
+            row_class: 'mb-6',
+            widget_class: 'rounded-md w-full',
+            widget_errors_class: 'text-red-600 border-red-500',
+            error_item_class: 'text-red-500'
+        }) }}
+        {{ form_row(registrationForm.agreeTerms, {
+            label_class:'ms-2 text-sm font-medium text-gray-900 dark:text-white text-wrap',
+            widget_class:'w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-700 dark:ring-offset-gray-800'
+        }) }}
+        <button type="submit"
+                class="text-white w-full bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 ">
+            Register
+        </button>
+        {{ form_end(registrationForm) }}
+    </div>
+{% endblock %}

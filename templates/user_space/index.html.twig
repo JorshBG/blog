@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My Space{% endblock %}
+
+{% block body %}
+    <div class="flex flex-row flex-wrap justify-between gap-y-6 mx-6">
+
+        {% for post in posts %}
+
+            <twig:post:Card title="{{ post.title }}" author="{{ post.author.firstName }}">
+                {% if post.body|length > 250 %}{{ post.body|slice(0, 250) }}...{% else %}{{ post.body }}{% endif %}
+            </twig:post:Card>
+
+        {% endfor %}
+
+    </div>
+{% endblock %}

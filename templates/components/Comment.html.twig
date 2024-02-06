@@ -1,0 +1,30 @@
+{# {% props comment = null %} #}
+<div class="w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div class="flex flex-row justify-between text-sm font-medium text-gray-500 border-b border-gray-200 rounded-t-lg bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800 px-5 py-2">
+
+        <span class="text-slate-800 dark:text-white">{{ comment.author.firstName }}</span>
+
+        <span>{{ comment.created|date("d/m/Y H:m") }}</span>
+
+    </div>
+    <div class="text-gray-500 dark:text-gray-400 py-2 px-5">
+        {{ comment.content }}
+    </div>
+
+    {% if is_granted('IS_AUTHENTICATED') %}
+
+        <div class="flex justify-end text-slate-900 dark:text-white items-center">
+            <div
+                    class="love-to-comment mr-5 mb-2 cursor-pointer"
+                    data-comment-id="{{ comment.id }}"
+                    id="comment-{{ comment.id }}"
+                    data-user-id="1"
+                    {% if isLoved %}disabled="disabled"{% endif %}
+            >
+                <span id="love-amount-for-comment-{{ comment.id }}">{{ comment.loves|length }}</span>&nbsp;
+                <i class="fa-regular fa-heart {% if isLoved %}text-red-500{% endif %}"
+                   id="love-icon-comment-{{ comment.id }}"></i>
+            </div>
+        </div>
+    {% endif %}
+</div>

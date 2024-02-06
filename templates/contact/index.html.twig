@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ContactController!{% endblock %}
+
+{% block body %}
+    <div class="max-w-[500px] m-auto">
+        <h1 class="text-4xl text-slate-900 font-bold text-center dark:text-white">
+            Hi! I'm Jordi Yair Calva García
+        </h1>
+
+        <p class="text-xl mt-6 text-slate-800 text-center dark:text-white">
+            This is my practice project about the blog. I made it with Symfony Framework to increase my skills with PHP
+            language
+        </p>
+
+        <div class="mt-10">
+            <h2 class="text-2xl text-slate-850 font-bold text-center dark:text-white">
+                Find me on
+            </h2>
+            <div class="flex flex-row flex-wrap gap-2 mt-3">
+                <div class="rounded-md shadow bg-black shadow-black dark:bg-white dark:hover:bg-gray-200 dark:shadow-white px-2 py-1">
+                    <a href="https://github.com/JorshBG" class="text-center text-white dark:text-black flex items-center gap-2">
+                        <i class="fa-brands fa-github text-2xl"></i>
+                        <b>@JorshBG</b>
+                    </a>
+                </div>
+
+                <div class="rounded-md shadow shadow-cyan-500/50 bg-blue-800 hover:bg-blue-900 px-2 py-1">
+                    <a href="https://linkedin.com/in/jordiy" class="text-center text-white flex items-center gap-2">
+                        <i class="fa-brands fa-linkedin-in text-2xl"></i>
+                        <b>/jordiy</b>
+                    </a>
+                </div>
+
+                <div class="rounded-md shadow shadow-red-500/50 bg-red-800 hover:bg-red-900 px-2 py-1">
+                    <a href="mailto:jordiyair29@gmail.com" class="text-center text-white flex items-center gap-2">
+                        <i class="fa-solid fa-envelope text-2xl"></i>
+                        <b>Email</b>
+                    </a>
+                </div>
+
+                <div class="rounded-md shadow shadow-green-500/50 bg-green-700 hover:bg-green-800 px-2 py-1">
+                    <a href="https://api.whatsapp.com/send?phone=5657305988" class="text-center text-white flex items-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-2xl"></i>
+                        <b>Chat with me!</b>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

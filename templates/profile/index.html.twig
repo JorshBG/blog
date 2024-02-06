@@ -1,0 +1,102 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block body %}
+
+    <div class="max-w-[500px] m-auto">
+
+        <section class="text-slate-800 dark:text-white flex flex-col gap-4">
+            <figure class="flex flex-col m-auto">
+                {% if app.user.photo %}
+                    <i class="fa-solid fa-circle-user text-9xl"></i>
+                {% else %}
+                    <i class="fa-solid fa-circle-user text-red-500 text-9xl"></i>
+                {% endif %}
+
+                <div class="flex flex-row gap-x-4 mt-2 w-full rounded bg-slate-100/30 items-center justify-center">
+                    <div class="p-1 cursor-pointer">
+                        <i class="fa-solid fa-pencil hover:text-blue-300 text-white"></i>
+                    </div>
+                    <div class="p-1 cursor-pointer">
+                        <i class="fa-solid fa-download hover:text-blue-300 text-white"></i>
+                    </div>
+                </div>
+            </figure>
+
+            <div class="flex flex-col gap-y-5">
+                <div class="grid grid-cols-2 gap-6">
+
+                    <div class="flex flex-col gap-y-1">
+                        <label for="profile-first_name">First Name</label>
+                        <input type="text" name="" id="profile-first_name"
+                               class="rounded-sm shadow w-full shadow-black dark:shadow-gray-100/50 bg-slate-50 dark:bg-slate-200 text-black border-none"
+                               value="{{ app.user.firstName }}">
+                    </div>
+
+                    <div class="flex flex-col gap-y-1">
+                        <label for="profile-last_name">Last Name</label>
+                        <input type="text" name="" id="profile-last_name"
+                               class="rounded-sm shadow w-full shadow-black dark:shadow-gray-100/50 bg-slate-50 dark:bg-slate-200 text-black border-none"
+                               value="{{ app.user.lastName }}">
+                    </div>
+
+                    <div>
+                        <label for="profile_tel">Phone</label>
+                        <input type="tel" name="" id="profile_tel"
+                               class="rounded-sm shadow w-full shadow-black dark:shadow-gray-100/50 bg-slate-50 dark:bg-slate-200 text-black border-none"
+                               value="{{ app.user.phone }}">
+                    </div>
+
+                    <div>
+                        <label for="profile_email">Email</label>
+                        <input type="email" id="profile_email" value="{{ app.user.email }}"
+                               class="rounded-sm shadow w-full shadow-black dark:shadow-gray-100/50 bg-slate-50 dark:bg-slate-200 text-black border-none">
+                    </div>
+
+                    <div>
+                        <label for="profile_gender">Gender</label>
+                        <select name="" id="profile_gender"
+                                class="rounded-sm shadow w-full shadow-black dark:shadow-gray-100/50 bg-slate-50 dark:bg-slate-200 text-black border-none">
+                            <option value="">-- Choose --</option>
+                            <option value="male" {% if app.user.gender == 'male' %}selected{% endif %}>Male</option>
+                            <option value="female" {% if app.user.gender == 'female' %}selected{% endif %}>Female
+                            </option>
+                            <option value="other" {% if app.user.gender == 'other' %}selected{% endif %}>Other</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="profile_birth">Birthday</label>
+                        <input type="date" id="profile_birth"
+                               class="rounded-sm shadow w-full shadow-black dark:shadow-gray-100/50 bg-slate-50 dark:bg-slate-200 text-black border-none">
+                    </div>
+
+                </div>
+
+
+                <div class="flex flex-col">
+                    <label for="profile-description">Description</label>
+                    <textarea name="" id="profile-description"
+                              class="rounded-sm shadow w-full shadow-black dark:shadow-gray-100/50 bg-slate-50 dark:bg-slate-200 text-black border-none"
+                              rows="3">{{ app.user.description }}</textarea>
+                </div>
+
+
+            </div>
+
+
+            <div class="flex justify-center mt-6">
+                <button type="submit"
+                        class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+                    <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                    Save
+                    </span>
+                </button>
+            </div>
+
+        </section>
+
+    </div>
+
+{% endblock %}
